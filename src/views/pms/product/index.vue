@@ -244,7 +244,7 @@
           width="80"
           align="center">
           <template slot-scope="scope">
-            <el-input v-model="scope.row.price"></el-input>
+            <el-input v-model.number="scope.row.price"></el-input>
           </template>
         </el-table-column>
         <el-table-column
@@ -252,7 +252,7 @@
           width="80"
           align="center">
           <template slot-scope="scope">
-            <el-input v-model="scope.row.stock"></el-input>
+            <el-input v-model.number="scope.row.stock"></el-input>
           </template>
         </el-table-column>
         <el-table-column
@@ -260,7 +260,7 @@
           width="100"
           align="center">
           <template slot-scope="scope">
-            <el-input v-model="scope.row.lowStock"></el-input>
+            <el-input v-model.number="scope.row.lowStock"></el-input>
           </template>
         </el-table-column>
       </el-table>
