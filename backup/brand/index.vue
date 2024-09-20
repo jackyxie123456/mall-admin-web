@@ -44,9 +44,6 @@
         <el-table-column label="品牌名称" align="center">
           <template slot-scope="scope">{{scope.row.name}}</template>
         </el-table-column>
-        <el-table-column label="品牌名称(E)" align="center">
-          <template slot-scope="scope">{{scope.row.nameEn}}</template>
-        </el-table-column>
         <el-table-column label="品牌首字母" width="100" align="center">
           <template slot-scope="scope">{{scope.row.firstLetter}}</template>
         </el-table-column>

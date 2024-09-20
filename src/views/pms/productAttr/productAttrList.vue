@@ -37,6 +37,9 @@
         <el-table-column label="可选值列表" align="center">
           <template slot-scope="scope">{{scope.row.inputList}}</template>
         </el-table-column>
+        <el-table-column label="可选值列表 En" align="center">
+          <template slot-scope="scope">{{scope.row.inputListEn}}</template>
+        </el-table-column>
         <el-table-column label="排序" width="100" align="center">
           <template slot-scope="scope">{{scope.row.sort}}</template>
         </el-table-column>

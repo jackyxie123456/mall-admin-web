@@ -9,7 +9,9 @@
       :before-upload="beforeUpload"
       :on-remove="handleRemove"
       :on-success="handleUploadSuccess"
-      :on-preview="handlePreview">
+      :on-preview="handlePreview"
+      :headers="customHeader" 
+      >
       <el-button size="small" type="primary">点击上传</el-button>
       <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过10MB</div>
     </el-upload>
@@ -20,7 +22,7 @@
 </template>
 <script>
   import {policy} from '@/api/oss'
-
+  import { getToken } from '@/utils/auth'
   export default {
     name: 'singleUpload',
     props: {
@@ -61,11 +63,16 @@
           dir: '',
           host: '',
           // callback:'',
+          
+        },
+        customHeader: {
+          Authorization: getToken()
         },
         dialogVisible: false,
         useOss:false, //使用oss->true;使用MinIO->false
         ossUploadUrl:'http://macro-oss.oss-cn-shenzhen.aliyuncs.com',
-        minioUploadUrl:'http://localhost:8080/minio/upload',
+        //minioUploadUrl:'http://localhost:8080/minio/upload',
+        minioUploadUrl:'http://192.168.2.119:8086/minio/upload',
       };
     },
     methods: {
@@ -110,7 +117,7 @@
         }
         this.fileList.push({name: file.name, url: url});
         this.emitInput(this.fileList[0].url);
-      }
+      },
     }
   }
 </script>

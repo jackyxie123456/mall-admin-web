@@ -4,6 +4,9 @@
       <el-form-item label="属性名称：" prop="name">
         <el-input v-model="productAttr.name"></el-input>
       </el-form-item>
+      <el-form-item label="属性名称(EN)：" prop="name">
+        <el-input v-model="productAttr.nameEn"></el-input>
+      </el-form-item>
       <el-form-item label="商品类型：">
         <el-select v-model="productAttr.productAttributeCategoryId" placeholder="请选择">
           <el-option
@@ -49,6 +52,9 @@
       <el-form-item label="属性值可选值列表:">
         <el-input :autosize="true" type="textarea" v-model="inputListFormat"></el-input>
       </el-form-item>
+      <el-form-item label="属性值可选值列表 En:">
+        <el-input :autosize="true" type="textarea" v-model="inputListFormatEn"></el-input>
+      </el-form-item>
       <el-form-item label="是否支持手动新增:">
         <el-radio-group v-model="productAttr.handAddStatus">
           <el-radio :label="1">是</el-radio>
@@ -74,8 +80,10 @@
     filterType: 0,
     handAddStatus: 0,
     inputList: '',
+    inputListEn: '',
     inputType: 0,
     name: '',
+    nameEn: '',
     productAttributeCategoryId: 0,
     relatedStatus: 0,
     searchType: 0,
@@ -98,10 +106,15 @@
           name: [
             {required: true, message: '请输入属性名称', trigger: 'blur'},
             {min: 2, max: 140, message: '长度在 2 到 140 个字符', trigger: 'blur'}
+          ],
+          nameEn: [
+            {required: true, message: '请输入属性名称', trigger: 'blur'},
+            {min: 2, max: 140, message: '长度在 2 到 140 个字符', trigger: 'blur'}
           ]
         },
         productAttrCateList: null,
-        inputListFormat:null
+        inputListFormat:null,
+        inputListFormatEn: null,
       }
     },
     created() {
@@ -109,6 +122,7 @@
         getProductAttr(this.$route.query.id).then(response => {
           this.productAttr = response.data;
           this.inputListFormat = this.productAttr.inputList.replace(/,/g,'\n');
+          this.inputListFormatEn = this.productAttr.inputListEn.replace(/,/g,'\n');
         });
       }else{
         this.resetProductAttr();
@@ -119,6 +133,10 @@
       inputListFormat: function (newValue, oldValue) {
         newValue = newValue.replace(/\n/g,',');
         this.productAttr.inputList = newValue;
+      },
+      inputListFormatEn:  function (newValue, oldValue) {
+        newValue = newValue.replace(/\n/g,',');
+        this.productAttr.inputListEn = newValue;
       }
     },
     methods: {

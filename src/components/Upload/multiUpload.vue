@@ -11,6 +11,7 @@
       :on-preview="handlePreview"
       :limit="maxCount"
       :on-exceed="handleExceed"
+      :headers="customHeader" 
     >
       <i class="el-icon-plus"></i>
     </el-upload>
@@ -21,6 +22,7 @@
 </template>
 <script>
   import {policy} from '@/api/oss'
+  import { getToken } from '@/utils/auth'
 
   export default {
     name: 'multiUpload',
@@ -43,11 +45,15 @@
           dir: '',
           host: ''
         },
+        customHeader: {
+          Authorization: getToken()
+        },
         dialogVisible: false,
         dialogImageUrl:null,
         useOss:false, //使用oss->true;使用MinIO->false
         ossUploadUrl:'http://macro-oss.oss-cn-shenzhen.aliyuncs.com',
         minioUploadUrl:'http://localhost:8080/minio/upload',
+        //minioUploadUrl:'http://192.168.2.119:8086/minio/upload',
       };
     },
     computed: {
@@ -76,8 +82,8 @@
       },
       beforeUpload(file) {
         let _self = this;
+        
         if(!this.useOss){
-          //不使用oss不需要获取策略
           return true;
         }
         return new Promise((resolve, reject) => {

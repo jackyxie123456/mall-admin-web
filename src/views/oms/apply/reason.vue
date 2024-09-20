@@ -22,6 +22,9 @@
         <el-table-column label="原因类型" align="center">
           <template slot-scope="scope">{{scope.row.name}}</template>
         </el-table-column>
+        <el-table-column label="原因类型（E）" align="center">
+          <template slot-scope="scope">{{scope.row.nameEn}}</template>
+        </el-table-column>
         <el-table-column label="排序" width="100" align="center">
           <template slot-scope="scope">{{scope.row.sort }}</template>
         </el-table-column>
@@ -89,6 +92,9 @@
                ref="reasonForm" label-width="150px">
         <el-form-item label="原因类型：">
           <el-input v-model="returnReason.name" class="input-width"></el-input>
+        </el-form-item>
+        <el-form-item label="原因类型(E)：">
+          <el-input v-model="returnReason.nameEn" class="input-width"></el-input>
         </el-form-item>
         <el-form-item label="排序：">
           <el-input v-model="returnReason.sort" class="input-width"></el-input>

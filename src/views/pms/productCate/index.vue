@@ -21,6 +21,9 @@
         <el-table-column label="分类名称" align="center">
           <template slot-scope="scope">{{scope.row.name}}</template>
         </el-table-column>
+        <el-table-column label="分类名称(E)" align="center">
+          <template slot-scope="scope">{{scope.row.nameEn}}</template>
+        </el-table-column>
         <el-table-column label="级别" width="100" align="center">
           <template slot-scope="scope">{{scope.row.level | levelFilter}}</template>
         </el-table-column>
@@ -29,6 +32,9 @@
         </el-table-column>
         <el-table-column label="数量单位" width="100" align="center">
           <template slot-scope="scope">{{scope.row.productUnit }}</template>
+        </el-table-column>
+        <el-table-column label="数量单位(E)" width="100" align="center">
+          <template slot-scope="scope">{{scope.row.productUnitEn }}</template>
         </el-table-column>
         <el-table-column label="导航栏" width="100" align="center">
           <template slot-scope="scope">

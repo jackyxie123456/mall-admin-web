@@ -31,17 +31,7 @@ export const constantRouterMap = [
       name: 'home',
       component: () => import('@/views/home/index'),
       meta: {title: '仪表盘', icon: 'dashboard'}
-    },
-    {
-      name: 'document',
-      path: 'https://www.macrozheng.com',
-      meta: {title: '学习教程', icon: 'document'}
-    },
-    {
-      name: 'video',
-      path: 'https://www.macrozheng.com/mall/catalog/mall_video.html',
-      meta: {title: '视频教程', icon: 'video'}
-    },
+    }
     ]
   }
 ]
@@ -54,11 +44,11 @@ export const asyncRouterMap = [
     name: 'pms',
     meta: {title: '商品', icon: 'product'},
     children: [{
-      path: 'product',
-      name: 'product',
-      component: () => import('@/views/pms/product/index'),
-      meta: {title: '商品列表', icon: 'product-list'}
-    },
+        path: 'product',
+        name: 'product',
+        component: () => import('@/views/pms/product/index'),
+        meta: {title: '商品列表', icon: 'product-list'}
+      },
       {
         path: 'addProduct',
         name: 'addProduct',
@@ -96,7 +86,7 @@ export const asyncRouterMap = [
         path: 'productAttr',
         name: 'productAttr',
         component: () => import('@/views/pms/productAttr/index'),
-        meta: {title: '商品类型', icon: 'product-attr'}
+        meta: {title: '属性类型', icon: 'product-attr'}
       },
       {
         path: 'productAttrList',
@@ -139,6 +129,7 @@ export const asyncRouterMap = [
         meta: {title: '编辑品牌'},
         hidden: true
       }
+      
     ]
   },
   {
@@ -370,6 +361,7 @@ export const asyncRouterMap = [
       }
     ]
   },
+  
   {path: '*', redirect: '/404', hidden: true}
 ]
 

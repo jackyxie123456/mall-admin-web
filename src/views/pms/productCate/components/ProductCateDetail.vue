@@ -7,6 +7,9 @@
       <el-form-item label="分类名称：" prop="name">
         <el-input v-model="productCate.name"></el-input>
       </el-form-item>
+      <el-form-item label="分类名称(E)：" prop="nameEn">
+        <el-input v-model="productCate.nameEn"></el-input>
+      </el-form-item>
       <el-form-item label="上级分类：">
         <el-select v-model="productCate.parentId"
                    placeholder="请选择分类">
@@ -20,6 +23,9 @@
       </el-form-item>
       <el-form-item label="数量单位：">
         <el-input v-model="productCate.productUnit"></el-input>
+      </el-form-item>
+      <el-form-item label="数量单位(E)：">
+        <el-input v-model="productCate.productUnitEn"></el-input>
       </el-form-item>
       <el-form-item label="排序：">
         <el-input v-model="productCate.sort"></el-input>
@@ -56,8 +62,14 @@
       <el-form-item label="关键词：">
         <el-input v-model="productCate.keywords"></el-input>
       </el-form-item>
+      <el-form-item label="关键词(E)：">
+        <el-input v-model="productCate.keywordsEn"></el-input>
+      </el-form-item>
       <el-form-item label="分类描述：">
         <el-input type="textarea" :autosize="true" v-model="productCate.description"></el-input>
+      </el-form-item>
+      <el-form-item label="分类描述(E)：">
+        <el-input type="textarea" :autosize="true" v-model="productCate.descriptionEn"></el-input>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="onSubmit('productCateFrom')">提交</el-button>
@@ -100,6 +112,10 @@
         selectProductCateList: [],
         rules: {
           name: [
+            {required: true, message: '请输入品牌名称', trigger: 'blur'},
+            {min: 2, max: 140, message: '长度在 2 到 140 个字符', trigger: 'blur'}
+          ],
+          nameEn: [
             {required: true, message: '请输入品牌名称', trigger: 'blur'},
             {min: 2, max: 140, message: '长度在 2 到 140 个字符', trigger: 'blur'}
           ]

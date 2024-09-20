@@ -2,13 +2,13 @@
   <div style="margin-top: 50px">
     <el-form :model="value" ref="productSaleForm" label-width="120px" class="form-inner-container" size="small">
       <el-form-item label="赠送积分：">
-        <el-input v-model="value.giftPoint"></el-input>
+        <el-input v-model.number="value.giftPoint" type="number"></el-input>
       </el-form-item>
       <el-form-item label="赠送成长值：">
-        <el-input v-model="value.giftGrowth"></el-input>
+        <el-input v-model.number="value.giftGrowth" type="number"></el-input>
       </el-form-item>
       <el-form-item label="积分购买限制：">
-        <el-input v-model="value.usePointLimit"></el-input>
+        <el-input v-model.number="value.usePointLimit" type="number"></el-input>
       </el-form-item>
       <el-form-item label="预告商品：">
         <el-switch
@@ -70,6 +70,8 @@
         <div>
           开始时间：
           <el-date-picker
+            value-format="yyyy-MM-dd'T'HH:mm:ss'Z'"
+            format="yyyy-MM-dd HH:mm:ss"
             v-model="value.promotionStartTime"
             type="datetime"
             :picker-options="pickerOptions1"
@@ -82,6 +84,8 @@
             v-model="value.promotionEndTime"
             type="datetime"
             :picker-options="pickerOptions1"
+            value-format="yyyy-MM-dd'T'HH:mm:ss'Z'"
+            format="yyyy-MM-dd HH:mm:ss"
             placeholder="选择结束时间">
           </el-date-picker>
         </div>
@@ -169,7 +173,10 @@
   export default {
     name: "ProductSaleDetail",
     props: {
-      value: Object,
+      value: {
+        giftGrowth: 0 ,
+        giftPoint: 0 ,
+      },
       isEdit: {
         type: Boolean,
         default: false

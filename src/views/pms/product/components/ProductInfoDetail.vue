@@ -10,8 +10,14 @@
       <el-form-item label="商品名称：" prop="name">
         <el-input v-model="value.name"></el-input>
       </el-form-item>
+      <el-form-item label="商品名称(E)：" prop="nameEn">
+        <el-input v-model="value.nameEn"></el-input>
+      </el-form-item>
       <el-form-item label="副标题：" prop="subTitle">
         <el-input v-model="value.subTitle"></el-input>
+      </el-form-item>
+      <el-form-item label="副标题(E)：" prop="subTitleEn">
+        <el-input v-model="value.subTitleEn"></el-input>
       </el-form-item>
       <el-form-item label="商品品牌：" prop="brandId">
         <el-select
@@ -47,6 +53,9 @@
       </el-form-item>
       <el-form-item label="计量单位：">
         <el-input v-model="value.unit"></el-input>
+      </el-form-item>
+      <el-form-item label="计量单位(E)：">
+        <el-input v-model="value.unitEn"></el-input>
       </el-form-item>
       <el-form-item label="商品重量：">
         <el-input v-model="value.weight" style="width: 300px"></el-input>
@@ -88,7 +97,12 @@
             {required: true, message: '请输入商品名称', trigger: 'blur'},
             {min: 2, max: 140, message: '长度在 2 到 140 个字符', trigger: 'blur'}
           ],
+          nameEn: [
+            {required: true, message: '请输入商品名称', trigger: 'blur'},
+            {min: 2, max: 140, message: '长度在 2 到 140 个字符', trigger: 'blur'}
+          ],
           subTitle: [{required: true, message: '请输入商品副标题', trigger: 'blur'}],
+          subTitleEn: [{required: true, message: '请输入商品副标题', trigger: 'blur'}],
           productCategoryId: [{required: true, message: '请选择商品分类', trigger: 'blur'}],
           brandId: [{required: true, message: '请选择商品品牌', trigger: 'blur'}],
           description: [{required: true, message: '请输入商品介绍', trigger: 'blur'}],

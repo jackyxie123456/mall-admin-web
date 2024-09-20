@@ -22,6 +22,9 @@
         <el-table-column label="类型名称" align="center">
           <template slot-scope="scope">{{scope.row.name}}</template>
         </el-table-column>
+        <el-table-column label="类型名称(E)" align="center">
+          <template slot-scope="scope">{{scope.row.nameEn}}</template>
+        </el-table-column>
         <el-table-column label="属性数量" width="200" align="center">
           <template slot-scope="scope">{{scope.row.attributeCount==null?0:scope.row.attributeCount}}</template>
         </el-table-column>

@@ -96,6 +96,12 @@
             <p>品牌：{{scope.row.brandName}}</p>
           </template>
         </el-table-column>
+        <el-table-column label="商品名称(E)" align="center">
+          <template slot-scope="scope">
+            <p>{{scope.row.nameEn}}</p>
+            <p>Brand：{{scope.row.brandNameEn}}</p>
+          </template>
+        </el-table-column>
         <el-table-column label="价格/货号" width="120" align="center">
           <template slot-scope="scope">
             <p>价格：￥{{scope.row.price}}</p>

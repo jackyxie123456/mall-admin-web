@@ -120,6 +120,12 @@
             <p>品牌：{{scope.row.productBrand}}</p>
           </template>
         </el-table-column>
+        <el-table-column label="商品名称(E)" align="center">
+          <template slot-scope="scope">
+            <p>{{scope.row.productNameEn}}</p>
+            <p>brand：{{scope.row.productBrandEn}}</p>
+          </template>
+        </el-table-column>
         <el-table-column label="价格/货号" width="120" align="center">
           <template slot-scope="scope">
             <p>价格：￥{{scope.row.productPrice}}</p>
@@ -129,6 +135,11 @@
         <el-table-column label="属性" width="120" align="center">
           <template slot-scope="scope">
             {{scope.row.productAttr | formatProductAttr}}
+          </template>
+        </el-table-column>
+        <el-table-column label="属性(E)" width="120" align="center">
+          <template slot-scope="scope">
+            {{scope.row.productAttrEn | formatProductAttr}}
           </template>
         </el-table-column>
         <el-table-column label="数量" width="120" align="center">
@@ -468,7 +479,7 @@
         }
       },
       formatProductAttr(value){
-        if(value==null){
+        if(value==null || value ==""){
           return '';
         }else{
           let attr = JSON.parse(value);

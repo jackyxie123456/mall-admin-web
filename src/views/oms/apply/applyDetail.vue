@@ -18,6 +18,12 @@
             <span class="font-small">品牌：{{scope.row.productBrand}}</span>
           </template>
         </el-table-column>
+        <el-table-column label="商品名称(E)" align="center">
+          <template slot-scope="scope">
+            <span class="font-small">{{scope.row.productNameEn}}</span><br>
+            <span class="font-small">brand：{{scope.row.productBrandEn}}</span>
+          </template>
+        </el-table-column>
         <el-table-column label="价格/货号" width="180" align="center">
           <template slot-scope="scope">
             <span class="font-small">价格：￥{{scope.row.productRealPrice}}</span><br>
@@ -26,6 +32,9 @@
         </el-table-column>
         <el-table-column label="属性" width="180" align="center">
           <template slot-scope="scope">{{scope.row.productAttr}}</template>
+        </el-table-column>
+        <el-table-column label="属性(E)" width="180" align="center">
+          <template slot-scope="scope">{{scope.row.productAttrEn}}</template>
         </el-table-column>
         <el-table-column label="数量" width="100" align="center">
           <template slot-scope="scope">{{scope.row.productCount}}</template>
@@ -79,8 +88,16 @@
           <el-col class="form-border font-small" :span="18">{{orderReturnApply.reason}}</el-col>
         </el-row>
         <el-row>
+          <el-col class="form-border form-left-bg font-small" :span="6">退货原因(E)</el-col>
+          <el-col class="form-border font-small" :span="18">{{orderReturnApply.reasonEn}}</el-col>
+        </el-row>
+        <el-row>
           <el-col class="form-border form-left-bg font-small" :span="6">问题描述</el-col>
           <el-col class="form-border font-small" :span="18">{{orderReturnApply.description}}</el-col>
+        </el-row>
+        <el-row>
+          <el-col class="form-border form-left-bg font-small" :span="6">问题描述(E)</el-col>
+          <el-col class="form-border font-small" :span="18">{{orderReturnApply.descriptionEn}}</el-col>
         </el-row>
         <el-row>
           <el-col class="form-border form-left-bg font-small" :span="6" style="height:100px;line-height:80px">凭证图片

@@ -4,9 +4,6 @@
       <el-form-item label="品牌名称：" prop="name">
         <el-input v-model="brand.name"></el-input>
       </el-form-item>
-      <el-form-item label="品牌名称(E)：" prop="name">
-        <el-input v-model="brand.nameEn"></el-input>
-      </el-form-item>
       <el-form-item label="品牌首字母：">
         <el-input v-model="brand.firstLetter"></el-input>
       </el-form-item>
@@ -21,13 +18,6 @@
           placeholder="请输入内容"
           type="textarea"
           v-model="brand.brandStory"
-          :autosize="true"></el-input>
-      </el-form-item>
-      <el-form-item label="品牌故事(E)：">
-        <el-input
-          placeholder="请输入内容"
-          type="textarea"
-          v-model="brand.brandStoryEn"
           :autosize="true"></el-input>
       </el-form-item>
       <el-form-item label="排序：" prop="sort">
@@ -79,10 +69,6 @@
         brand:Object.assign({}, defaultBrand),
         rules: {
           name: [
-            {required: true, message: '请输入品牌名称', trigger: 'blur'},
-            {min: 2, max: 140, message: '长度在 2 到 140 个字符', trigger: 'blur'}
-          ],
-          name_en: [
             {required: true, message: '请输入品牌名称', trigger: 'blur'},
             {min: 2, max: 140, message: '长度在 2 到 140 个字符', trigger: 'blur'}
           ],
